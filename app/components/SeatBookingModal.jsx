@@ -6,19 +6,22 @@ import { useState } from "react";
 import { Modal, Form, Input, Select, Button } from "antd";
 import { pricingPlans, contactInfo } from "../assets/data/libraryData";
 import { FaWhatsapp } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const SeatBookingModal = ({ open, onClose }) => {
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async (values) => {
+    const handleSubmit = async () => {
         setLoading(true);
 
         setTimeout(() => {
             setLoading(false);
             form.resetFields();
             onClose?.();
-        }, 1000);
+            toast.success('Form Submited successfully');
+        }, 2000);
+
     };
 
     const handleWhatsappBooking = () => {

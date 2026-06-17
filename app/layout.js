@@ -3,6 +3,7 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "./globals.css";
 import ThemeProvider from "./components/ThemeProvider";
 import { contactInfo } from "./assets/data/libraryData";
+import { Toaster } from "react-hot-toast";
 
 const archivo = Archivo({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -91,6 +92,7 @@ export default function RootLayout({ children }) {
               }}
             />
 
+          <Toaster />
           </ThemeProvider>
         </AntdRegistry>
       </body>
