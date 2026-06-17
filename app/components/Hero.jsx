@@ -3,10 +3,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, ArrowRight, Clock3 } from "lucide-react";
+import { ArrowRight, Clock3 } from "lucide-react";
 import { contactInfo, heroData } from "../assets/data/libraryData";
 import { floatingAnimation } from "../lib/animations";
 import AnimatedSection from "./AnimatedSection";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Hero = ({ onBookSeat }) => {
     return (
@@ -52,7 +53,7 @@ const Hero = ({ onBookSeat }) => {
                                     rel="noreferrer"
                                     className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-7 py-3.5 font-semibold text-slate-700 transition hover:border-green-600 hover:text-green-600 dark:border-slate-700 dark:text-slate-300"
                                 >
-                                    <MessageCircle size={18} />
+                                    <FaWhatsapp size={18} />
                                     WhatsApp Inquiry
                                 </a>
                             </div>
@@ -77,7 +78,7 @@ const Hero = ({ onBookSeat }) => {
 
                             <div className="relative overflow-hidden rounded-[32px] border border-white/20 bg-white/40 p-3 shadow-2xl backdrop-blur-xl dark:bg-slate-900/50">
                                 <img
-                                    src={heroData.heroImage}
+                                    src='/heroImage.avif'
                                     alt="Premium Study Room"
                                     className="h-[500px] w-full rounded-[24px] object-cover"
                                 />

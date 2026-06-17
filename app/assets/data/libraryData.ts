@@ -27,9 +27,7 @@ export const heroData = {
     subtitle:
         "Premium AC Study Room with High-Speed WiFi, Silent Environment, CCTV Security and Comfortable Seating.",
     trustedText: "Trusted by 500+ Students",
-    timing: "Open Daily • 6:00 AM - 11:00 PM",
-    heroImage:
-        "https://images.unsplash.com/photo-1521587760476-6c12a4b040da",
+    timing: "Open Daily • 6:00 AM - 11:00 PM"
 };
 
 export const stats = [

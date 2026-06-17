@@ -6,11 +6,11 @@ import { Form, Input, Select, Button } from "antd";
 import {
     Phone,
     Mail,
-    MapPin,
-    MessageCircle,
+    MapPin
 } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import { contactInfo, pricingPlans } from "../assets/data/libraryData";
+import { FaWhatsapp } from "react-icons/fa";
 
 const contactItems = [
     {
@@ -21,7 +21,7 @@ const contactItems = [
     {
         label: "WhatsApp",
         value: contactInfo.whatsapp,
-        icon: MessageCircle,
+        icon: FaWhatsapp,
     },
     {
         label: "Email",

@@ -4,8 +4,8 @@
 
 import { useState } from "react";
 import { Modal, Form, Input, Select, Button } from "antd";
-import { MessageCircle } from "lucide-react";
 import { pricingPlans, contactInfo } from "../assets/data/libraryData";
+import { FaWhatsapp } from "react-icons/fa";
 
 const SeatBookingModal = ({ open, onClose }) => {
     const [form] = Form.useForm();
@@ -13,8 +13,6 @@ const SeatBookingModal = ({ open, onClose }) => {
 
     const handleSubmit = async (values) => {
         setLoading(true);
-
-        console.log("Booking Data:", values);
 
         setTimeout(() => {
             setLoading(false);
@@ -54,7 +52,7 @@ const SeatBookingModal = ({ open, onClose }) => {
                 form={form}
                 layout="vertical"
                 onFinish={handleSubmit}
-                className="mt-4"
+                className="mt-5!"
             >
                 <Form.Item
                     label="Full Name"
@@ -115,7 +113,7 @@ const SeatBookingModal = ({ open, onClose }) => {
 
                     <Button
                         size="large"
-                        icon={<MessageCircle size={16} />}
+                        icon={<FaWhatsapp size={16} />}
                         onClick={handleWhatsappBooking}
                         className="flex-1 py-3!"
                     >
