@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navigationLinks } from "../assets/data/libraryData";
 import DarkModeToggle from "./DarkModeToggle";
+import Link from "next/link";
+import Loading from "./Loading";
 
-const Navbar = ({ onBookSeat }) => {
+const Navbar = ({ onBookSeat, profile = null, loading }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [scrollY, setScrollY] = useState(0);
@@ -84,9 +86,18 @@ const Navbar = ({ onBookSeat }) => {
                 <div className="hidden items-center gap-3 lg:flex">
                     <DarkModeToggle />
 
+                    <Link
+                        href={profile ? `/client/${profile?.role}` : '/auth/login'}
+                        className="rounded-full border border-slate-400 px-5 py-2.5 text-sm font-semibold hover:bg-blue-100 dark:hover:bg-slate-700 dark:text-white transition hover:scale-105"
+                    >
+                        {
+                            loading ? <Loading /> : (profile ? 'Dashboard' : 'Login')
+                        }
+                    </Link>
+
                     <button
                         onClick={onBookSeat}
-                        className="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:scale-105 hover:bg-blue-700"
+                        className="rounded-full border border-blue-600 bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:scale-105 hover:bg-blue-700"
                     >
                         Book Seat
                     </button>
@@ -95,6 +106,15 @@ const Navbar = ({ onBookSeat }) => {
                 {/* Mobile Actions */}
                 <div className="flex items-center gap-2 lg:hidden">
                     <DarkModeToggle />
+
+                    <Link
+                        href={profile ? `/client/${profile?.role}` : '/auth/login'}
+                        className="rounded-xl border border-slate-300 py-2 px-5 text-sm text-center font-semibold hover:bg-blue-100 dark:hover:bg-slate-700 dark:text-white transition"
+                    >
+                        {
+                            loading ? <Loading /> : (profile ? 'Dashboard' : 'Login')
+                        }
+                    </Link>
 
                     <button
                         onClick={() => setIsOpen((prev) => !prev)}
@@ -124,15 +144,18 @@ const Navbar = ({ onBookSeat }) => {
                             ))}
 
                         </div>
-                        <button
-                            onClick={() => {
-                                onBookSeat?.();
-                                setIsOpen(false);
-                            }}
-                            className="mt-7 rounded-xl bg-blue-600 py-3 w-full text-sm font-semibold text-white"
-                        >
-                            Book Seat
-                        </button>
+
+                        <div className="flex flex-col gap-3 mt-5">
+                            <button
+                                onClick={() => {
+                                    onBookSeat?.();
+                                    setIsOpen(false);
+                                }}
+                                className="rounded-xl bg-blue-600 py-3 w-full text-sm font-semibold text-white"
+                            >
+                                Book Seat
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

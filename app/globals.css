@@ -1,6 +1,7 @@
 /* app/globals.css */
 
 @import "tailwindcss";
+@source "./app/**/*.{js,ts,jsx,tsx}";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -19,6 +20,10 @@ body {
 
 button {
   cursor: pointer;
+  outline: none;
+}
+
+input{
   outline: none;
 }
 

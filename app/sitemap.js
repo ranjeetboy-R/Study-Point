@@ -1,7 +1,7 @@
 export default function sitemap() {
   return [
     {
-      url: "https://your-domain.com",
+      url: "https://librarypoint.vercel.app",
       lastModified: new Date(),
     },
   ];

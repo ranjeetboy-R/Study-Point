@@ -4,6 +4,7 @@ import "./globals.css";
 import ThemeProvider from "./components/ThemeProvider";
 import { contactInfo } from "./assets/data/libraryData";
 import { Toaster } from "react-hot-toast";
+import InternateProvider from "./InternateProvider";
 
 const archivo = Archivo({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -32,12 +33,12 @@ export const metadata = {
     title: "StudyHub Library | Premium Study Room",
     description:
       "Book premium study seats with AC, WiFi, CCTV & silent environment.",
-    url: "https://your-domain.com",
+    url: "https://librarypoint.vercel.app",
     siteName: "StudyHub Library",
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "StudyHub Library",
@@ -49,7 +50,7 @@ export const metadata = {
     title: "StudyHub Library",
     description:
       "Premium study room with AC, WiFi & silent environment.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -92,7 +93,8 @@ export default function RootLayout({ children }) {
               }}
             />
 
-          <Toaster />
+            <InternateProvider />
+            <Toaster />
           </ThemeProvider>
         </AntdRegistry>
       </body>

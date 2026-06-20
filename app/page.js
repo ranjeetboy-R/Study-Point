@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -19,16 +19,22 @@ import FloatingCall from "./components/FloatingCall";
 import ScrollToTop from "./components/ScrollToTop";
 import SeatBookingModal from "./components/SeatBookingModal";
 import Contact from "./components/Contact";
+import { authStore } from "./store/authStore";
 
 export default function HomePage() {
+  const {getProfile, profile, loading} = authStore();
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const openBookingModal = () => setIsBookingOpen(true);
   const closeBookingModal = () => setIsBookingOpen(false);
 
+  useEffect(()=> {
+    getProfile()
+  }, [])
+
   return (
     <main className="min-h-screen bg-white text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-white">
-      <Navbar onBookSeat={openBookingModal} />
+      <Navbar onBookSeat={openBookingModal} profile={profile} loading={loading} />
       <Hero onBookSeat={openBookingModal} />
       <Stats />
       <SeatAvailability />
